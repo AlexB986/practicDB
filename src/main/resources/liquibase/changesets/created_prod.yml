@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dev
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: articles
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name_of_product
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sale
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_purchase_price
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_sale_price
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: coming
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
