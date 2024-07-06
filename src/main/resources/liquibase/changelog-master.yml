@@ -1,13 +1,16 @@
 databaseChangeLog:
   - include:
       file:
-        liquibase/changesets/created_prod.yml
+        liquibase/changesets/created_warehouse.yml
   - include:
       file:
-        liquibase/changesets/created_warehouse.yml
+        liquibase/changesets/created_prod.yml
   - include:
       file:
         liquibase/changesets/created_receipt.yml
   - include:
       file:
-        liquibase/changesets/creates_sale.yml
+        liquibase/changesets/created_sale.yml
+  - include:
+      file:
+        liquibase/changesets/created_product_entity.yml

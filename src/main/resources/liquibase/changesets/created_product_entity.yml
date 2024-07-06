@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: dev
+      changes:
+        - createTable:
+            tableName: product_entity
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: receipt_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sale_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: product_entity
+            baseColumnNames: receipt_id
+            constraintName: fk_product_entity_receipt
+            referencedTableName: receipt
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: product_entity
+            baseColumnNames: sale_id
+            constraintName: fk_product_entity_sale
+            referencedTableName: sale
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: product_entity
+            baseColumnNames: product_id
+            constraintName: fk_product_entity_product
+            referencedTableName: product
+            referencedColumnNames: id

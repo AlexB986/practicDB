@@ -1,6 +1,5 @@
 package com.practic.db.model;
 
-import com.practic.db.DTO.ProductDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,19 +28,19 @@ public class Sales {
     private Warehouse warehouse;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "sale",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<ProductDTO>productDTOList;
+    private List<ProductEntity> productEntityList;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Sales sales = (Sales) o;
-        return Objects.equals(id, sales.id) && Objects.equals(number, sales.number) && Objects.equals(warehouse, sales.warehouse) && Objects.equals(productDTOList, sales.productDTOList);
+        return Objects.equals(id, sales.id) && Objects.equals(number, sales.number) && Objects.equals(warehouse, sales.warehouse) && Objects.equals(productEntityList, sales.productEntityList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, number, warehouse, productDTOList);
+        return Objects.hash(id, number, warehouse, productEntityList);
     }
 
     @Override
@@ -50,7 +49,7 @@ public class Sales {
                 "id=" + id +
                 ", number='" + number + '\'' +
                 ", warehouse=" + warehouse +
-                ", productDTOList=" + productDTOList +
+                ", productDTOList=" + productEntityList +
                 '}';
     }
 }
